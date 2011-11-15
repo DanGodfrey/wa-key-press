@@ -1,0 +1,31 @@
+<div id="avayaIndexMain">
+    <!-- webalive required, WACanvas placeholder for all webalive content  -->
+	<div id="WACanvas" style="height: 510px; width: 1000px; background-image: url(http://wa2844.avayalive.com/webcommon-2.1-b0/_img/loading_en.gif); background-color: rgb(255, 255, 255); background-position: 50% 50%; background-repeat: no-repeat no-repeat; "> 
+	    
+	    <noscript>Javascript is required to experience web.alive. Please enable javascript support in your browser and refresh
+	    </noscript>
+		<iframe width="1000px" height="510px" scrolling="no" frameborder="0" id="webAlive" name="webAlive">
+		  
+		</iframe>
+		<iframe width="" height="" scrolling="no" frameborder="0" id="WASystemMessage" name="WASystemMessage" style="left: 505px; top: 388px; ">
+		  
+		</iframe>
+		<iframe width="" height="" scrolling="no" frameborder="0" id="WATextChat" name="WATextChat" style="left: 505px; top: 363px; ">
+		  
+		</iframe>
+		<iframe width="800px" height="600px" scrolling="no" frameborder="0" id="WAAvatar" name="WAAvatar">
+		  
+		</iframe>
+	</div> 			
+	<!-- webalive required (can be inline) -->
+	<script type="text/javascript" src="http://wa2844.avayalive.com/2844/html/javascript/WAInit.js"></script> 
+	<script language="JavaScript">	
+	    WAUrlVars = {
+		    "XResolution":  document.getElementById('WACanvas').style.width ,
+			"YResolution": document.getElementById('WACanvas').style.height,
+		    "Language":"en","GenericParam": "?ReqAnonConn=false", "URLOverwriteAllowed": "true"
+		}
+		WAStart();
+	</script> 	
+	<!-- end webalive required -->	
+</div>
