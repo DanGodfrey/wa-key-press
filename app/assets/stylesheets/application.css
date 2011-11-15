@@ -1,7 +1,13 @@
-/*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self
- *= require_tree . 
-*/
+#WACanvas{
+    height: 510px;
+    width: 1000px; 
+    background-image: url(http://wa2844.avayalive.com/webcommon-2.1-b0/_img/loading_en.gif); 
+    background-color: rgb(255, 255, 255); 
+    background-position: 50% 50%; 
+    background-repeat: no-repeat no-repeat;
+}
+
+#avayaIndexMain {
+    width:auto;
+    height:auto;
+}
