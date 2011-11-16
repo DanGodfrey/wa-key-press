@@ -6,3 +6,7 @@
  *= require_tree . 
 */
 
+#webAlive{
+    position:absolute;
+    top:0;
+}
