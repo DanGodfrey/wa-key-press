@@ -38,23 +38,23 @@ var kpa = {
     },
     pressKey: function(player,keyNumber,keyTeam){
         if (this.game.status === "stopped"){
-            this.api.wa_executeConsoleCommand("displayHUDMessage THE GAME HASN'T STARTED YET!");
+            this.api.wa_executeConsoleCommand("displayHUDMessage THE GAME HASN'T STARTED YET!",100);
             return;
         }
         if (this.player.team !== keyTeam){
-            this,api.wa_executeConsoleCommand("displayHUDMessage THIS KEY DOES NOT BELONG TO YOUR TEAM");
+            this,api.wa_executeConsoleCommand("displayHUDMessage THIS KEY DOES NOT BELONG TO YOUR TEAM",100);
             return;
         }
         if ((this.game.scores[1] + 1) !== keyNumber){
-            this.api.wa_executeConsoleCommand("displayHUDMessage THIS IS NOT THE NEXT KEY. THE NEXT KEY IS " + (this.game.scores[1] + 1));
+            this.api.wa_executeConsoleCommand("displayHUDMessage THIS IS NOT THE NEXT KEY. THE NEXT KEY IS " + (this.game.scores[1] + 1),100);
             return;
         }
         if ((this.player.lastKey + 1) === keyNumber){
-            this,api.wa_executeConsoleCommand("displayHUDMessage YOU CAN'T PUSH TWO KEYS IN A ROW.");
+            this,api.wa_executeConsoleCommand("displayHUDMessage YOU CAN'T PUSH TWO KEYS IN A ROW.",100);
             return;
         }
         //call web alive trigger to remove key
-        this.api.wa_executeConsoleCommand("displayHUDMessage YOU SUCCESSFULLY PRESSED KEY " + keyNumber);
+        this.api.wa_executeConsoleCommand("displayHUDMessage YOU SUCCESSFULLY PRESSED KEY " + keyNumber,100);
     }
 }
 
