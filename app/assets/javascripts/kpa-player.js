@@ -2,7 +2,7 @@ var kpa = {
     api: "",
     init: function(){
         this.api = parent.frames['webAlive'].document.getElementById("CWebPluginControl");
-        if (!(api)){
+        if (!(this.api)){
             setTimeout(function () {kpa.init();}, 4000);
         }
     },
