@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @game.status %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @game.start_time %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @game.duration %>
+</p>
+
+<p>
+  <b>Team 1 score:</b>
+  <%= @game.team_1_score %>
+</p>
+
+<p>
+  <b>Team 2 score:</b>
+  <%= @game.team_2_score %>
+</p>
+
+<p>
+  <b>Return location:</b>
+  <%= @game.return_location %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
+
+<h2>Players:</h2>
+<% @game.players.each do |player| %>
+  <p>
+    <b>Name:</b>
+    <%= player.player_id %>
+  </p>
+<%end%>

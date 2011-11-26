@@ -1,5 +1,11 @@
 WaKeyPress::Application.routes.draw do
-  resources :posts
+  
+
+  resources :games do
+    resources :players
+  end
+  
+  match 'facilitator' => 'wa#facilitator'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

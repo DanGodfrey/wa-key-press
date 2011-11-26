@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+
+Game.create(:status => "stopped",:start_time => Time.now, :duration => 0, :team_1_score => 0, :team_2_score => 0, :return_location => "")
