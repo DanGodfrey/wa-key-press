@@ -2,6 +2,9 @@ var kpa = {
     api: "",
     init: function(){
         this.api = parent.frames['webAlive'].document.getElementById("CWebPluginControl");
+        if (!(api)){
+            setTimeout(function () {kpa.init();}, 4000);
+        }
     },
     player: {
         team: 0,
@@ -31,23 +34,23 @@ var kpa = {
             kpa.game.scores[2] = data.team_2_score;
             kpa.game.returnLocation = data.return_location;
         });
-        setTimeout(function (){kpa.init();kpa.updateGameParams();}, 4000);
+        setTimeout(function (){kpa.updateGameParams();}, 1000);
     },
     pressKey: function(player,keyNumber,keyTeam){
         if (this.game.status === "stopped"){
-            api.wa_executeConsoleCommand("displayHUDMessage THE GAME HASN'T STARTED YET!");
+            this.api.wa_executeConsoleCommand("displayHUDMessage THE GAME HASN'T STARTED YET!");
             return;
         }
         if (this.player.team !== keyTeam){
-            api.wa_executeConsoleCommand("displayHUDMessage THIS KEY DOES NOT BELONG TO YOUR TEAM");
+            this,api.wa_executeConsoleCommand("displayHUDMessage THIS KEY DOES NOT BELONG TO YOUR TEAM");
             return;
         }
         if ((this.game.scores[this.player.team] + 1) !== keyNumber){
-            api.wa_executeConsoleCommand("displayHUDMessage THIS IS NOT THE NEXT KEY. THE NEXT KEY IS " + (this.game.scores[this.player.team] + 1));
+            this.api.wa_executeConsoleCommand("displayHUDMessage THIS IS NOT THE NEXT KEY. THE NEXT KEY IS " + (this.game.scores[this.player.team] + 1));
             return;
         }
         if ((this.player.lastKey + 1) === keyNumber){
-            api.wa_executeConsoleCommand("displayHUDMessage YOU CAN'T PUSH TWO KEYS IN A ROW.");
+            this,api.wa_executeConsoleCommand("displayHUDMessage YOU CAN'T PUSH TWO KEYS IN A ROW.");
             return;
         }
         //call web alive trigger to remove key
@@ -55,6 +58,8 @@ var kpa = {
     }
 }
 
+setTimeout(function () {kpa.init();}, 4000);
+kpa.updateGameParams();
 
 //move these to application.js later
 
