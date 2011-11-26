@@ -31,7 +31,7 @@ var kpa = {
             kpa.game.scores[2] = data.team_2_score;
             kpa.game.returnLocation = data.return_location;
         });
-        setTimeout(function () {kpa.updateGameParams();}, 1000);
+        setTimeout(function () {kpa.init();kpa.updateGameParams();}, 1000);
     },
     pressKey: function(player,keyNumber,keyTeam){
         if (this.game.status === "stopped"){
@@ -57,5 +57,4 @@ var kpa = {
 
 
 //move these to application.js later
-setTimeout(function () {kpa.init();}, 4000);
-kpa.updateGameParams();
+
