@@ -45,8 +45,8 @@ var kpa = {
             this,api.wa_executeConsoleCommand("displayHUDMessage THIS KEY DOES NOT BELONG TO YOUR TEAM");
             return;
         }
-        if ((this.game.scores[this.player.team] + 1) !== keyNumber){
-            this.api.wa_executeConsoleCommand("displayHUDMessage THIS IS NOT THE NEXT KEY. THE NEXT KEY IS " + (this.game.scores[this.player.team] + 1));
+        if ((this.game.scores[1] + 1) !== keyNumber){
+            this.api.wa_executeConsoleCommand("displayHUDMessage THIS IS NOT THE NEXT KEY. THE NEXT KEY IS " + (this.game.scores[1] + 1));
             return;
         }
         if ((this.player.lastKey + 1) === keyNumber){
