@@ -80,8 +80,10 @@ var kpa = {
     }
 }
 
-setTimeout(function () {kpa.init();}, 4000);
-kpa.updateGameParams();
-$("#ingame").hide();
+$(document).ready(function(){
+    $("#ingame").hide();
+    setTimeout(function () {kpa.init();}, 4000);
+    kpa.updateGameParams();
+});
 //move these to application.js later
 
