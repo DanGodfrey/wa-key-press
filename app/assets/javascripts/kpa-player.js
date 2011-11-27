@@ -18,8 +18,8 @@ var kpa = {
         returnLocation: ""
     },
     joinTeam: function(team_number, player_id){
-        if (this.team == 0) {
-            this.team = team_number;
+        if (this.player.team == 0) {
+            this.player.team = team_number;
             $.post("/games/1/players", { player: {player_id: player_id, team: this.team, game_id: 1} }, function(data) {});
         }
         return this.team;
@@ -53,7 +53,8 @@ var kpa = {
             this,api.wa_executeConsoleCommand("displayHUDMessage YOU CAN'T PUSH TWO KEYS IN A ROW.",100);
             return;
         }
-        //call web alive trigger to remove key
+        //TODO:
+        //call web alive trigger to remove key here
         this.api.wa_executeConsoleCommand("displayHUDMessage YOU SUCCESSFULLY PRESSED KEY " + keyNumber,100);
     }
 }
