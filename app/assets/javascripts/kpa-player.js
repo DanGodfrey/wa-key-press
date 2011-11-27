@@ -34,7 +34,7 @@ var kpa = {
             kpa.game.scores[1] = data.team_1_score;
             kpa.game.scores[2] = data.team_2_score;
             kpa.game.returnLocation = data.return_location;
-            var diffMilli = (new Date(kpa.game.startTime).addMinutes(kpa.game.duration)-(new Date));
+            var diffMilli = (new Date(kpa.game.startTime).addMinutes(kpa.game.duration).getTime()-(new Date).getTime());
             if (diffMilli > 0){
                 kpa.game.timeRemaining = (Date.parse("today")).addMilliseconds(diffMilli).toString("HH:mm:ss");
             }
@@ -43,10 +43,11 @@ var kpa = {
             }
         });
         if (kpa.game.status == "started"){
+            if (kpa.game.timeRemaining === "00:00:00"){
+                $("#ingame").hide();
+                this.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
+            }
             kpa.renderGame();
-        }
-        else{
-            $("#ingame").hide();
         }
         setTimeout(function (){kpa.updateGameParams();}, 1000);
     },
@@ -72,6 +73,7 @@ var kpa = {
         this.api.wa_executeConsoleCommand("displayHUDMessage YOU SUCCESSFULLY PRESSED KEY " + keyNumber,100);
     },
     renderGame: function(){
+        $("#ingame").show();
         $("#team1score").html(kpa.game.scores[1]);
         $("#team2score").html(kpa.game.scores[2]);
         $("#timeRemaining").html(kpa.game.timeRemaining);
