@@ -8,7 +8,7 @@ var kpa = {
     },
     player: {
         team: 0,
-        lastKey: -1
+        lastKey: 0
     },
     game: {
         status: "",
@@ -65,7 +65,7 @@ var kpa = {
             kpa.api.wa_executeConsoleCommand("displayHUDMessage THIS IS NOT THE NEXT KEY. THE NEXT KEY IS " + (kpa.game.scores[kpa.player.team] + 1),100);
             return;
         }
-        if ((kpa.player.lastKey + 1) === keyNumber){
+        if (((kpa.player.lastKey + 1) === keyNumber)&&(kpa.player.lastKey != 0)){
             kpa.api.wa_executeConsoleCommand("displayHUDMessage YOU CAN'T PUSH TWO KEYS IN A ROW.",100);
             return;
         }
