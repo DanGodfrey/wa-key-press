@@ -15,14 +15,15 @@ var kpa = {
         startTime: "",
         duration: "",
         scores: "",
-        returnLocation: ""
+        returnLocation: "",
+        timeRemaining: ""
     },
     joinTeam: function(team_number, player_id){
-        if (this.player.team == 0) {
-            this.player.team = team_number;
-            $.post("/games/1/players", { player: {player_id: player_id, team: this.team, game_id: 1} }, function(data) {});
+        if (kpa.player.team === 0) {
+            kpa.player.team = team_number;
+            $.post("/games/1/players", { player: {player_id: player_id, team: kpa.player.team, game_id: 1} }, function(data) {});
         }
-        return this.team;
+        return this.player.team;
     },
     updateGameParams: function(){
         $.get("/games/1.json", function(data) {
@@ -33,7 +34,20 @@ var kpa = {
             kpa.game.scores[1] = data.team_1_score;
             kpa.game.scores[2] = data.team_2_score;
             kpa.game.returnLocation = data.return_location;
+            var diffMilli = (new Date(kpa.game.startTime).addMinutes(kpa.game.duration)-(new Date));
+            if (diffMilli > 0){
+                kpa.game.timeRemaining = (Date.parse("today")).addMilliseconds(diffMilli).toString("HH:mm:ss");
+            }
+            else {
+                kpa.game.timeRemaining = "00:00:00"
+            }
         });
+        if (kpa.game.status == "started"){
+            kpa.renderGame();
+        }
+        else{
+            $("#ingame").hide();
+        }
         setTimeout(function (){kpa.updateGameParams();}, 1000);
     },
     pressKey: function(player,keyNumber,keyTeam){
@@ -56,11 +70,16 @@ var kpa = {
         //TODO:
         //call web alive trigger to remove key here
         this.api.wa_executeConsoleCommand("displayHUDMessage YOU SUCCESSFULLY PRESSED KEY " + keyNumber,100);
+    },
+    renderGame: function(){
+        $("#team1score").html(kpa.game.scores[1]);
+        $("#team2score").html(kpa.game.scores[2]);
+        $("#timeRemaining").html(kpa.game.timeRemaining);
     }
 }
 
 setTimeout(function () {kpa.init();}, 4000);
 kpa.updateGameParams();
-
+$("#ingame").hide();
 //move these to application.js later
 

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20111126210713) do
   create_table "games", :force => true do |t|
     t.string   "status"
     t.datetime "start_time"
-    t.time     "duration"
+    t.integer  "duration"
     t.integer  "team_1_score"
     t.integer  "team_2_score"
     t.string   "return_location"
