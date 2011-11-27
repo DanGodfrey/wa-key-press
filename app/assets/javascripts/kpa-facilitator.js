@@ -25,7 +25,7 @@ var kpa = {
             kpa.game.scores[1] = data.team_1_score;
             kpa.game.scores[2] = data.team_2_score;
             kpa.game.returnLocation = data.return_location;
-            var diffMilli = (new Date(kpa.game.startTime).addMinutes(kpa.game.duration).getTime()-(new Date).getTime());
+            var diffMilli = (new Date(kpa.game.startTime).addMinutes(kpa.game.duration)-(new date((new Date).toISOString())));
             if (diffMilli > 0){
                 kpa.game.timeRemaining = (Date.parse("today")).addMilliseconds(diffMilli).toString("HH:mm:ss");
             }
