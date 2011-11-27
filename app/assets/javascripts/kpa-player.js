@@ -72,12 +72,19 @@ var kpa = {
         //TODO:
         //call web alive trigger to remove key here
         kpa.player.lastKey = keyNumber;
+        var dataString;
+        if (kpa.player.team = 1){
+            dataString = JSON.stringify({game:{team_1_score: keyNumber}});
+        }
+        else{
+            dataString = JSON.stringify({game:{team_2_score: keyNumber}});
+        }
         $.ajax({
             type: "PUT",
             url: "/games/1",
             beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
             contentType: "application/json",
-            data: JSON.stringify({game:{"team_" + keyTeam + "_score": kwyNumber}}),
+            data: dataString,
             dataType: 'json'
         });
         kpa.api.wa_executeConsoleCommand("displayHUDMessage YOU SUCCESSFULLY PRESSED KEY " + keyNumber,100);
