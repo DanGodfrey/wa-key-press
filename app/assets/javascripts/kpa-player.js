@@ -8,7 +8,7 @@ var kpa = {
     },
     player: {
         team: 0,
-        lastKey: 0
+        lastKey: -1
     },
     game: {
         status: "",
