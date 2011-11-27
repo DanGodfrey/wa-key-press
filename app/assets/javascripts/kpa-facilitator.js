@@ -54,6 +54,7 @@ var kpa = {
         setTimeout(function (){kpa.updateGameParams();}, 1000);
     },
     startGame: function(duration,returnLocation){
+        console.log("starting game - " + duration + " - " + returnLocation)
         $.ajax({
             type: "PUT",
             url: "/games/1",
