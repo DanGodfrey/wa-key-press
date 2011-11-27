@@ -27,6 +27,10 @@ var kpa = {
     },
     updateGameParams: function(){
         $.get("/games/1.json", function(data) {
+            if ((kpa.game.status === "started") && (data.status === "stopped")){
+                $("#ingame").hide();
+                this.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
+            }
             kpa.game.status = data.status;
             kpa.game.startTime = data.start_time;
             kpa.game.duration = data.duration;
@@ -43,10 +47,6 @@ var kpa = {
             }
         });
         if (kpa.game.status == "started"){
-            if (kpa.game.timeRemaining === "00:00:00"){
-                $("#ingame").hide();
-                this.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
-            }
             kpa.renderGame();
         }
         setTimeout(function (){kpa.updateGameParams();}, 1000);
