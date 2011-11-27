@@ -2,8 +2,8 @@
 var kpa = {
     api: "",
     init: function(){
-        this.api = parent.frames['webAlive'].document.getElementById("CWebPluginControl");
-        if (!(this.api)){
+        kpa.api = parent.frames['webAlive'].document.getElementById("CWebPluginControl");
+        if (!(kpa.api)){
             setTimeout(function () {kpa.init();}, 4000);
         }
     },
@@ -76,7 +76,7 @@ var kpa = {
         });
         $("#ingame").hide();
         $("#pregame").show();
-        this.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
+        kpa.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
     },
     clearGame: function(){
         
