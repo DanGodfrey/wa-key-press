@@ -29,7 +29,7 @@ var kpa = {
         $.get("/games/1.json", function(data) {
             if ((kpa.game.status === "started") && (data.status === "stopped")){
                 $("#ingame").hide();
-                this.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
+                kpa.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
             }
             kpa.game.status = data.status;
             kpa.game.startTime = data.start_time;
