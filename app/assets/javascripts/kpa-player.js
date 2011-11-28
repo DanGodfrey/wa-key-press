@@ -19,7 +19,7 @@ var kpa = {
         timeRemaining: ""
     },
     joinTeam: function(team_number, player_id){
-        if (kpa.player.team === 0) {
+        if (kpa.player.team == 0) {
             kpa.player.team = team_number;
             $.post("/games/1/players", { player: {player_id: player_id, team: kpa.player.team, game_id: 1} }, function(data) {});
         }
@@ -53,11 +53,11 @@ var kpa = {
         setTimeout(function (){kpa.updateGameParams();}, 1000);
     },
     pressKey: function(player,keyNumber,keyTeam){
-        if (kpa.game.status === "stopped"){
+        if (kpa.game.status == "stopped"){
             kpa.api.wa_executeConsoleCommand("displayHUDMessage THE GAME HASN'T STARTED YET!",100);
             return;
         }
-        if (kpa.player.team !== keyTeam){
+        if (kpa.player.team != keyTeam){
             kpa.api.wa_executeConsoleCommand("displayHUDMessage THIS KEY DOES NOT BELONG TO YOUR TEAM",100);
             return;
         }
@@ -73,7 +73,7 @@ var kpa = {
         //call web alive trigger to remove key here
         kpa.player.lastKey = keyNumber;
         var dataString;
-        if (kpa.player.team = 1){
+        if (kpa.player.team == 1){
             dataString = JSON.stringify({game:{team_1_score: keyNumber}});
         }
         else{
