@@ -51,6 +51,12 @@ var kpa = {
                 kpa.stopGame();
             }
             kpa.renderGame();
+            $("#ingame").show();
+            $("#pregame").hide();
+        }
+        else{
+            $("#ingame").hide();
+            $("#pregame").show();  
         }
         setTimeout(function (){kpa.updateGameParams();}, 1000);
     },
@@ -79,7 +85,8 @@ var kpa = {
         kpa.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
     },
     clearGame: function(){
-        
+         $.get("/clear", function(data) {});
+         kpa.stopGame();    
     },
     renderGame: function(){
         $("#team1score").html(kpa.game.scores[1]);
@@ -92,11 +99,14 @@ var kpa = {
 $(document).ready(function(){
     setTimeout(function () {kpa.init();}, 4000);
     kpa.updateGameParams();
-    $("#ingame").hide();
+
     $("#startbtn").click(function(){
         kpa.startGame($('#duration').val(),$('#return-location').val());
         $("#pregame").hide();
         $("#ingame").show();
+    });
+    $("#clearbtn").click(function(){
+        kpa.clearGame();
     });
     $("#stopbtn").live('click',function(){
         kpa.stopGame();

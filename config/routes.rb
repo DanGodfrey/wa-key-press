@@ -6,6 +6,8 @@ WaKeyPress::Application.routes.draw do
   end
   
   match 'facilitator' => 'wa#facilitator'
+  
+  match 'clear' => 'wa#clear'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
