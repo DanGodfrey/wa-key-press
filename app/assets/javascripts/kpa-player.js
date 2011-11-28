@@ -61,7 +61,7 @@ var kpa = {
             kpa.api.wa_executeConsoleCommand("displayHUDMessage THIS KEY DOES NOT BELONG TO YOUR TEAM",100);
             return;
         }
-        if ((kpa.game.scores[kpa.player.team] + 1) !== keyNumber){
+        if ((kpa.game.scores[kpa.player.team] + 1) != keyNumber){
             kpa.api.wa_executeConsoleCommand("displayHUDMessage THIS IS NOT THE NEXT KEY. THE NEXT KEY IS " + (kpa.game.scores[kpa.player.team] + 1),100);
             return;
         }
@@ -112,6 +112,7 @@ $(document).ready(function(){
         $("#join1").addClass("disabled");
     });
     $("#pressbtn").click(function(){
+        alert($("#key").val());
         kpa.pressKey("test",$("#key").val(),kpa.player.team);
     });
 });
