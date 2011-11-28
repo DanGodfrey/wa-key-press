@@ -65,7 +65,7 @@ var kpa = {
             kpa.api.wa_executeConsoleCommand("displayHUDMessage THIS IS NOT THE NEXT KEY. THE NEXT KEY IS " + (kpa.game.scores[kpa.player.team] + 1),100);
             return;
         }
-        if ((kpa.player.lastKey + 1) === keyNumber){
+        if ((kpa.player.lastKey + 1) == keyNumber){
             kpa.api.wa_executeConsoleCommand("displayHUDMessage YOU CAN'T PUSH TWO KEYS IN A ROW.",100);
             return;
         }
@@ -112,7 +112,6 @@ $(document).ready(function(){
         $("#join1").addClass("disabled");
     });
     $("#pressbtn").click(function(){
-        alert($("#key").val());
         kpa.pressKey("test",$("#key").val(),kpa.player.team);
     });
 });
