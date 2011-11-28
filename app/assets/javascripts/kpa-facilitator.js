@@ -61,7 +61,7 @@ var kpa = {
             url: "/games/1",
             beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
             contentType: "application/json",
-            data: JSON.stringify({game:{status: "started",start_time: (new Date).toISOString(), return_location: returnLocation, duration: duration}}),
+            data: JSON.stringify({game:{status: "started",team_1_score: 0,team_2_score: 0,start_time: (new Date).toISOString(), return_location: returnLocation, duration: duration}}),
             dataType: 'json'
         });
     },
