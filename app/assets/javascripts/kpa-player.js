@@ -30,7 +30,10 @@ var kpa = {
             if ((kpa.game.status === "started") && (data.status === "stopped")){
                 $("#ingame").hide();
                 kpa.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
-                kpa.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
+                kpa.api.wa_executeConsoleCommand("Do claphands" + kpa.game.returnLocation,100);
+            }
+            else  if ((kpa.game.status === "stopped") && (data.status === "started")){
+                kpa.api.wa_executeConsoleCommand("ToggleRunByDefault" + kpa.game.returnLocation,100); 
             }
             kpa.game.status = data.status;
             kpa.game.startTime = data.start_time;

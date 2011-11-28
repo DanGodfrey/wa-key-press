@@ -83,6 +83,7 @@ var kpa = {
         $("#ingame").hide();
         $("#pregame").show();
         kpa.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
+        kpa.api.wa_executeConsoleCommand("Do claphands" + kpa.game.returnLocation,100);
     },
     clearGame: function(){
          $.get("/clear", function(data) {});
