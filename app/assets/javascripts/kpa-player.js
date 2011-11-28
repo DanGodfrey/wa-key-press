@@ -101,6 +101,19 @@ $(document).ready(function(){
     $("#ingame").hide();
     setTimeout(function () {kpa.init();}, 4000);
     kpa.updateGameParams();
+    $("#join1").click(function(){
+        kpa.joinTeam(1,$("#name").val());
+        $("#join2").addClass("disabled");
+        $("#join1").addClass("disabled");
+    });
+    $("#join2").click(function(){
+        kpa.joinTeam(2,$("#name").val());
+        $("#join2").addClass("disabled");
+        $("#join1").addClass("disabled");
+    });
+    $("#pressbtn").click(function(){
+        kpa.pressKey("test",$("#key").val(),kpa.player.team);
+    });
 });
 //move these to application.js later
 

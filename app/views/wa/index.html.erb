@@ -34,3 +34,24 @@
         </div>
     </div>
 </div>
+<hr></hr>
+<p>Everything down here is for testing. In the final version, all actions that can be triggered bellow will be triggered from within web alive!</p>
+
+
+<div id="testingstuff">
+    Name:<input id="name" type="text"/>
+    <div class="btn" id="join1">
+        Join Team 1
+    </div>
+    <div class="btn" id="join2">
+        Join Team 2
+    </div>
+    <select id="key">
+        <%(1..30).each do |i|%>
+            <option><%=i%></option>
+        <%end%>
+    </select>
+    <div class="btn" id="pressbtn">
+        Press Key
+    </div>
+</div>
