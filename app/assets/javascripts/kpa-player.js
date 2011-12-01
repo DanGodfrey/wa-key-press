@@ -56,7 +56,7 @@ var kpa = {
         }
         setTimeout(function (){kpa.updateGameParams();}, 1000);
     },
-    pressKey: function(player,keyNumber,keyTeam){
+    pressKey: function(keyNumber,keyTeam){
         if (kpa.game.status == "stopped"){
             kpa.api.wa_executeConsoleCommand("displayHUDMessage THE GAME HASN'T STARTED YET!",100);
             return;
@@ -101,6 +101,16 @@ var kpa = {
     }
 }
 
+function joinTeamFromWA(parameters){
+    var params = parameters.split(" ");
+    kpa.joinTeam(params[0],params[1]);
+}
+
+function pressKeyFromWA(parameters){
+    var params = parameters.split(" ");
+    kpa.pressKey(params[0],params[1]);
+}
+
 $(document).ready(function(){
     $("#ingame").hide();
     setTimeout(function () {kpa.init();}, 4000);
@@ -116,7 +126,7 @@ $(document).ready(function(){
         $("#join1").addClass("disabled");
     });
     $("#pressbtn").click(function(){
-        kpa.pressKey("test",$("#key").val(),kpa.player.team);
+        kpa.pressKey($("#key").val(),kpa.player.team);
     });
 });
 //move these to application.js later
