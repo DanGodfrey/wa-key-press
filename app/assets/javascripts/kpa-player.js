@@ -102,11 +102,11 @@ var kpa = {
 }
 
 function joinTeamFromWA(parameters){
-    alert(parameters);
+    console.log(parameters);
 }
 
 function pressKeyFromWA(parameters){
-    alert(parameters);
+    console.log(parameters);
 }
 
 $(document).ready(function(){
