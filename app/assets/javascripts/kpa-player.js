@@ -102,11 +102,11 @@ var kpa = {
 }
 
 function joinTeamFromWA(parameters){
-    kpa.joinTeam(parameters,"test")
+    kpa.joinTeam(parameters,"test player")
 }
 
 function pressKeyFromWA(parameters){
-    kpa.pressKey(parameters.split()[0],parameters.split()[1]);
+    kpa.pressKey(parameters.split(" ")[0],parameters.split(" ")[1]);
 }
 
 $(document).ready(function(){
