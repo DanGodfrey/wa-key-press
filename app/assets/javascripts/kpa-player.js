@@ -101,8 +101,8 @@ var kpa = {
     }
 }
 
-function joinTeamFromWA(parameters){
-    kpa.joinTeam(parameters,"test player")
+function joinTeamFromWA(parameters, pawnSessionId, pawnName){
+    kpa.joinTeam(parameters,pawnName)
 }
 
 function pressKeyFromWA(parameters){
