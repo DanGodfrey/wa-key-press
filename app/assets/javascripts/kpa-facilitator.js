@@ -90,9 +90,9 @@ var kpa = {
          kpa.stopGame();    
     },
     renderGame: function(){
-        $("#team1score").html(kpa.game.scores[1]);
-        $("#team2score").html(kpa.game.scores[2]);
-        $("#timeRemaining").html(kpa.game.timeRemaining);
+        $("#team1score").html("Score: " + kpa.game.scores[1]);
+        $("#team2score").html("Score: " + kpa.game.scores[2]);
+        $("#timeRemaining").html("Time Remaining: " + kpa.game.timeRemaining);
     }
     
 }

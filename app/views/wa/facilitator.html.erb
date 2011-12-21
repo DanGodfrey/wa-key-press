@@ -1,69 +1,54 @@
 <%= javascript_include_tag "kpa-facilitator" %>
 
-<div id="avayaIndexMain">
-    <!-- webalive required, WACanvas placeholder for all webalive content  -->
-	<div id="WACanvas" style="height: 510px; width: 1000px; background-image: url(http://wa2844.avayalive.com/webcommon-2.1-b0/_img/loading_en.gif); background-color: rgb(255, 255, 255); background-position: 50% 50%; background-repeat: no-repeat no-repeat; "> 
-	    
-	    <noscript>Javascript is required to experience web.alive. Please enable javascript support in your browser and refresh
-	    </noscript>
-	</div> 			
-	<!-- webalive required (can be inline) -->
-	<script type="text/javascript" src="http://wa3530.avayalive.com/3530/html/javascript/WAInit.js"></script> 
-	<script language="JavaScript">	
-	    WAUrlVars = {
-		    "XResolution":  document.getElementById('WACanvas').style.width ,
-			"YResolution": document.getElementById('WACanvas').style.height,
-		    "Language":"en","GenericParam": "?ReqAnonConn=false", "URLOverwriteAllowed": "true"
-		}
-		WAStart();
-	</script> 	
-	<!-- end webalive required -->	
-</div>
-<div id="pregame">
-    <div>
+<div id="pregame" class="row">
+    <div class="span4">
         <h2>Team 1</h2>
         <ul id="team1list">
         </ul>
     </div>
-    <div>
+    <div class="span4">
+        <div>
+            Teleport Location:
+            <select id="return-location">
+                <option>CampFire</option>
+            </select>
+        </div>
+        <div>
+            Duration (min):
+            <select id="duration">
+                <option>15</option>
+                <option>30</option>
+                <option>45</option>
+            </select>
+        </div>
+        <div class="btn" id="startbtn">
+            Start Game
+        </div>
+        <div class="btn" id="clearbtn">
+            Clear Game
+        </div>
+    </div>
+    <div class="span4">
         <h2>Team 2</h2>
         <ul id="team2list">
         </ul>
     </div>
-    <div>
-        Teleport Location:
-        <select id="return-location">
-            <option>CampFire</option>
-        </select>
-    </div>
-    <div>
-        Duration (min):
-        <select id="duration">
-            <option>15</option>
-            <option>30</option>
-            <option>45</option>
-        </select>
-    </div>
-    <div class="btn" id="startbtn">
-        Start Game
-    </div>
-    <div class="btn" id="clearbtn">
-        Clear Game
-    </div>
 </div>
 
-<div id="ingame">
-    <div>
+<div id="ingame" class="row">
+    <div class="span4">
         <h2>Team 1</h2>
         <div id="team1score">
         </div>
     </div>
-    <div id="timeRemaining">
+    <div class="span4">
+        <div id="timeRemaining">
+        </div>
+        <div class="btn" id="stopbtn">
+            Stop Game
+        </div>
     </div>
-    <div class="btn" id="stopbtn">
-        Stop Game
-    </div>
-    <div>
+    <div class="span4">
         <h2>Team 2</h2>
         <div id="team2score">
         </div>
