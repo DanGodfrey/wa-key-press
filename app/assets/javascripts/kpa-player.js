@@ -102,7 +102,7 @@ var kpa = {
 }
 
 function joinTeamFromWA(parameters, pawnSessionId, pawnName){
-    kpa.joinTeam(parameters,pawnName)
+    kpa.joinTeam(parameters,pawnName);
 }
 
 function pressKeyFromWA(parameters){

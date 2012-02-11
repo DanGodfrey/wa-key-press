@@ -40,10 +40,10 @@ var kpa = {
         $("#team2list").empty();
         $.each(kpa.game.players, function(){
             if(this.team == 1){
-                $("#team1list").append("<li>" + this.player_id + "</li>");
+                $("#team1list").append("<li><i class='icon-user'></i>" + this.player_id + "</li>");
             } 
             else {
-                $("#team2list").append("<li>" + this.player_id + "</li>");
+                $("#team2list").append("<li><i class='icon-user'></i>" + this.player_id + "</li>");
             }
         });
         if (kpa.game.status === "started"){
@@ -51,12 +51,12 @@ var kpa = {
                 kpa.stopGame();
             }
             kpa.renderGame();
-            $("#ingame").show();
-            $("#pregame").hide();
+            $(".ingame").show();
+            $(".pregame").hide();
         }
         else{
-            $("#ingame").hide();
-            $("#pregame").show();  
+            $(".ingame").hide();
+            $(".pregame").show();  
         }
         setTimeout(function (){kpa.updateGameParams();}, 1000);
     },
@@ -80,8 +80,8 @@ var kpa = {
             data: JSON.stringify({game:{status: "stopped"}}),
             dataType: 'json'
         });
-        $("#ingame").hide();
-        $("#pregame").show();
+        $(".ingame").hide();
+        $(".pregame").show();
         kpa.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
         setTimeout(function (){kpa.api.wa_executeConsoleCommand("Do claphands", 100);},3000);
     },
@@ -103,8 +103,8 @@ $(document).ready(function(){
 
     $("#startbtn").click(function(){
         kpa.startGame($('#duration').val(),$('#return-location').val());
-        $("#pregame").hide();
-        $("#ingame").show();
+        $(".pregame").hide();
+        $(".ingame").show();
     });
     $("#clearbtn").click(function(){
         kpa.clearGame();

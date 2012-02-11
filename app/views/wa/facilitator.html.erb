@@ -1,56 +1,53 @@
 <%= javascript_include_tag "kpa-facilitator" %>
 
-<div id="pregame" class="row">
-    <div class="span4">
-        <h2>Team 1</h2>
-        <ul id="team1list">
-        </ul>
+<div class="alert-info team1 pregame team">
+    <h2>Team 1</h2>
+    <ul id="team1list">
+    </ul>
+</div>
+<div class="pregame controls">
+    <div>
+        Teleport Location:
+        <select id="return-location">
+            <option>CampFire</option>
+        </select>
     </div>
-    <div class="span4">
-        <div>
-            Teleport Location:
-            <select id="return-location">
-                <option>CampFire</option>
-            </select>
-        </div>
-        <div>
-            Duration (min):
-            <select id="duration">
-                <option>15</option>
-                <option>30</option>
-                <option>45</option>
-            </select>
-        </div>
-        <div class="btn" id="startbtn">
-            Start Game
-        </div>
-        <div class="btn" id="clearbtn">
-            Clear Game
-        </div>
+    <div>
+        Duration (min):
+        <select id="duration">
+            <option>15</option>
+            <option>30</option>
+            <option>45</option>
+        </select>
     </div>
-    <div class="span4">
-        <h2>Team 2</h2>
-        <ul id="team2list">
-        </ul>
+    <div class="btn" id="startbtn">
+        Start Game
+    </div>
+    <div class="btn" id="clearbtn">
+        Clear Game
     </div>
 </div>
+<div class="alert-error pregame team2 team">
+    <h2>Team 2</h2>
+    <ul id="team2list">
+    </ul>
+</div>
 
-<div id="ingame" class="row">
-    <div class="span4">
-        <h2>Team 1</h2>
-        <div id="team1score">
-        </div>
+
+<div class="alert-info team1 ingame team">
+    <h2>Team 1</h2>
+    <div id="team1score">
     </div>
-    <div class="span4">
-        <div id="timeRemaining">
-        </div>
-        <div class="btn" id="stopbtn">
-            Stop Game
-        </div>
+</div>
+<div class="ingame controls">
+    <div id="timeRemaining">
     </div>
-    <div class="span4">
-        <h2>Team 2</h2>
-        <div id="team2score">
-        </div>
+    <div class="btn" id="stopbtn">
+        Stop Game
+    </div>
+</div>
+<div class="alert-error ingame team2 team">
+    <h2>Team 2</h2>
+    <div id="team2score">
     </div>
 </div>

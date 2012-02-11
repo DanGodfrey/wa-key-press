@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>WaKeyPress</title>
-  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+  <%= stylesheet_link_tag "bootstrap.min" %>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "jquery-1.5.2.min" %>
   <%= javascript_include_tag "date" %>
@@ -10,27 +10,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div id="avayaIndexMain">
-        <!-- webalive required, WACanvas placeholder for all webalive content  -->
-    	<div id="WACanvas" style="height: 510px; width: 1000px; background-image: url(http://wa2844.avayalive.com/webcommon-2.1-b0/_img/loading_en.gif); background-color: rgb(255, 255, 255); background-position: 50% 50%; background-repeat: no-repeat no-repeat; "> 
-
-    	    <noscript>Javascript is required to experience web.alive. Please enable javascript support in your browser and refresh
+    <div class="container wa-client alert-success round">
+    	<div id="WACanvas"style="height: auto; width: 100%;"> 
+    	    <noscript>
+    	        Javascript is required to experience web.alive. Please enable javascript support in your browser and refresh
     	    </noscript>
-    	</div> 			
-    	<!-- webalive required (can be inline) -->
-    	<script type="text/javascript" src="http://wa3530.avayalive.com/3530/html/javascript/WAInit.js"></script> 
-    	<script language="JavaScript">	
-    	    WAUrlVars = {
-    		    "XResolution":  document.getElementById('WACanvas').style.width ,
-    			"YResolution": document.getElementById('WACanvas').style.height,
-    		    "Language":"en","GenericParam": "?ReqAnonConn=false", "URLOverwriteAllowed": "true"
-    		}
-    		WAStart();
-    	</script> 	
-    	<!-- end webalive required -->	
+    	</div>
+        <%= yield %>	
     </div>
-    <div id="content">
-        <%= yield %>
-    </div>
+	<script type="text/javascript" src="http://wa3530.avayalive.com/3530/html/javascript/WAInit.js"></script> 
+    <script language="JavaScript">	
+        $('#WACanvas').height($('#WACanvas').width() /2);
+        $('.team').height($('#WACanvas').width() /2);
+        $('#WACanvas').width($('#WACanvas').width());  
+        WAUrlVars = {
+    	    "XResolution":  $('#WACanvas').width() ,
+    		"YResolution": $('#WACanvas').height(),
+    	    "Language":"en","GenericParam": "?ReqAnonConn=false", "URLOverwriteAllowed": "true"
+    	}
+    	WAStart();
+    	$('iframe').height($('#WACanvas').width() /2);
+        $('iframe').width($('#WACanvas').width());
+        $("#WACanvas").css("background-color", "#DFF0D8");
+        $("#WACanvas").css("background-image", "");
+    </script>
 </body>
 </html>

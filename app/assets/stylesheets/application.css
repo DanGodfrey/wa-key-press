@@ -1,12 +1,83 @@
-/*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self
- *= require_tree . 
-*/
-
-#webAlive{
-    position:absolute;
-    top:0;
+i {
+    margin-right:5px;
+    margin-top:3px;
 }
+
+
+.wa-client{
+ margin-top:120px;
+ width:50%;   
+ overflow:hidden;
+}
+
+.round {
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -o-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.team {
+    position:absolute;
+    top:120px;
+    width:200px;
+}
+
+.team h2 {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.team ul {
+    list-style:none;
+}
+
+.team1 {
+    left:0;
+    -moz-border-radius-topright: 50px;
+    -webkit-border-top-right-radius: 50px;
+    border-top-right-radius: 50px;
+    -moz-border-radius-bottomright: 50px;
+    -webkit-border-botom-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.team1 h2 {
+    margin-left:35px;
+}
+
+.team1 ul {
+    font-size:18px;
+    margin-left:35px;
+}
+
+.team2{
+    right:0;
+    -moz-border-radius-topleft: 50px;
+    -webkit-border-top-left-radius: 50px;
+    border-top-left-radius: 50px;
+    -moz-border-radius-bottomleft: 50px;
+    -webkit-border-botom-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.team2 h2 {
+    text-align:center;
+}
+
+.team2 ul {
+    font-size:18px;
+    margin-left:60px;
+}
+
+.controls {
+    position:absolute;
+    bottom:0;
+}
+
+[class^="icon-"] {
+    background-image: url(/assets/glyphicons-halflings.png);
+}
+
+#WACanvas{
+    background-color:#DFF0D8;
