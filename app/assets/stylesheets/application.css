@@ -3,6 +3,10 @@ i {
     margin-top:3px;
 }
 
+select {
+    width:auto;
+}
+
 
 .wa-client{
  margin-top:120px;
