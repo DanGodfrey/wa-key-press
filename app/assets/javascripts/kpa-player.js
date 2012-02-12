@@ -28,7 +28,7 @@ var kpa = {
     updateGameParams: function(){
         $.get("/games/1.json", function(data) {
             if ((kpa.game.status === "started") && (data.status === "stopped")){
-                $("#ingame").hide();
+                $(".ingame").hide();
                 kpa.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
                 setTimeout(function (){kpa.api.wa_executeConsoleCommand("Do claphands", 100);},3000);
                 kpa.api.wa_executeConsoleCommand("ToggleRunByDefault",100); 
@@ -54,6 +54,9 @@ var kpa = {
         if (kpa.game.status == "started"){
             kpa.renderGame();
         }
+        $(".team").each(function(){
+            $(this).css("margin-top", $(".wa-client").height()/2 + 50 - $(this).height()/2);
+        });
         setTimeout(function (){kpa.updateGameParams();}, 1000);
     },
     pressKey: function(keyNumber,keyTeam){
@@ -94,10 +97,10 @@ var kpa = {
         kpa.api.wa_executeConsoleCommand("displayHUDMessage YOU SUCCESSFULLY PRESSED KEY " + keyNumber,100);
     },
     renderGame: function(){
-        $("#ingame").show();
-        $("#team1score").html("Score: " + kpa.game.scores[1]);
-        $("#team2score").html("Score: " + kpa.game.scores[2]);
-        $("#timeRemaining").html("Time Remaining: " + kpa.game.timeRemaining);
+        $(".ingame").show();
+        $("#team1score").html(kpa.game.scores[1]);
+        $("#team2score").html(kpa.game.scores[2]);
+        $("#timeRemaining").html( kpa.game.timeRemaining);
     }
 }
 
@@ -110,7 +113,7 @@ function pressKeyFromWA(parameters){
 }
 
 $(document).ready(function(){
-    $("#ingame").hide();
+    $(".ingame").hide();
     setTimeout(function () {kpa.init();}, 4000);
     kpa.updateGameParams();
     $("#join1").click(function(){

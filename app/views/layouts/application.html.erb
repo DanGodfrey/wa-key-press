@@ -16,12 +16,13 @@
     	        Javascript is required to experience web.alive. Please enable javascript support in your browser and refresh
     	    </noscript>
     	</div>
-        <%= yield %>	
+    	 <%= yield %>	
     </div>
+
 	<script type="text/javascript" src="http://wa3530.avayalive.com/3530/html/javascript/WAInit.js"></script> 
     <script language="JavaScript">	
         $('#WACanvas').height($('#WACanvas').width() /2);
-        $('.team').height($('#WACanvas').width() /2);
+        //$('.team').height($('#WACanvas').width() /2 + 60);
         $('#WACanvas').width($('#WACanvas').width());  
         WAUrlVars = {
     	    "XResolution":  $('#WACanvas').width() ,

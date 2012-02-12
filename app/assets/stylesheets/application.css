@@ -8,6 +8,8 @@ i {
  margin-top:120px;
  width:50%;   
  overflow:hidden;
+ padding-top:50px;
+ padding-bottom:50px;
 }
 
 .round {
@@ -21,11 +23,14 @@ i {
     position:absolute;
     top:120px;
     width:200px;
+    height:auto;
+    min-height:250px;
 }
 
 .team h2 {
     margin-top:10px;
     margin-bottom:10px;
+    text-align:center;
 }
 
 .team ul {
@@ -42,13 +47,13 @@ i {
     border-bottom-right-radius: 50px;
 }
 
-.team1 h2 {
-    margin-left:35px;
-}
-
 .team1 ul {
     font-size:18px;
     margin-left:35px;
+}
+
+.control-group {
+    height:18px;
 }
 
 .team2{
@@ -61,18 +66,45 @@ i {
     border-bottom-left-radius: 50px;
 }
 
-.team2 h2 {
-    text-align:center;
-}
-
 .team2 ul {
     font-size:18px;
     margin-left:60px;
 }
 
 .controls {
+
+}
+
+.btn {
+    margin-bottom:5px;
+}
+
+.tabbable{
+    margin-top:5px;
+    margin-left:5px;
+}
+
+.timer {
     position:absolute;
-    bottom:0;
+    top:60px;
+    width:50%;
+}
+
+.timer h1 {
+    color: #DA4F49;
+    text-align:center;
+}
+
+.stop-container {
+    width:88px;
+    margin-top:5px;
+}
+
+.score {
+    height:100%;
+    text-align:center;
+    font-size:150px;
+    line-height:150px;
 }
 
 [class^="icon-"] {

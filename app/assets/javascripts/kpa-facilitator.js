@@ -58,6 +58,9 @@ var kpa = {
             $(".ingame").hide();
             $(".pregame").show();  
         }
+        $(".team").each(function(){
+            $(this).css("margin-top", $(".wa-client").height()/2 + 50 - $(this).height()/2);
+        });
         setTimeout(function (){kpa.updateGameParams();}, 1000);
     },
     startGame: function(duration,returnLocation){
@@ -90,9 +93,9 @@ var kpa = {
          kpa.stopGame();    
     },
     renderGame: function(){
-        $("#team1score").html("Score: " + kpa.game.scores[1]);
-        $("#team2score").html("Score: " + kpa.game.scores[2]);
-        $("#timeRemaining").html("Time Remaining: " + kpa.game.timeRemaining);
+        $("#team1score").html( kpa.game.scores[1]);
+        $("#team2score").html(kpa.game.scores[2]);
+        $("#timeRemaining").html(kpa.game.timeRemaining);
     }
     
 }
@@ -112,4 +115,19 @@ $(document).ready(function(){
     $("#stopbtn").live('click',function(){
         kpa.stopGame();
     });
+    
+    $("#kpa-controls-btn").click(function(){
+        $(this).addClass("active");
+        $("#kpa-controls").addClass("active");
+        $("#zoom-controls-btn").removeClass("active");
+        $("#zoom-controls").removeClass("active");
+    });
+    
+    $("#zoom-controls-btn").click(function(){
+        $(this).addClass("active");
+        $("#zoom-controls").addClass("active");
+        $("#kpa-controls-btn").removeClass("active");
+        $("#kpa-controls").removeClass("active");
+    });
+    
 });
