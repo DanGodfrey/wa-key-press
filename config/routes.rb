@@ -8,7 +8,11 @@ WaKeyPress::Application.routes.draw do
   match 'facilitator' => 'wa#facilitator'
   
   match 'clear' => 'wa#clear'
-
+  
+  match 'zoom/new' => "s3media#create"
+  
+  match 'zoom/images' => 'zoomcollection#getImages'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

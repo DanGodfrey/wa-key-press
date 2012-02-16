@@ -41,7 +41,75 @@
                 </div>
           </div>
           <div class="tab-pane" id="zoom-controls">
-            <p>Coming soon...</p>
+                <div class="row">
+                    <div class="span4 right-border">
+                        <h4>Use a new or existing photo collection?</h4>
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="radio inline">
+                                    <input type="radio" name="optionsRadios" id="existing-collection" value="option1" checked=""/>
+                                    Existing
+                                </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="optionsRadios" id="new-collection" value="option2" />
+                                    New
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-horizontal">
+                            <div class="control-group" id="existing-container">
+                                <label class="control-label" for="photo-collections">Collection:</label>
+                                <select class="inline" id="photo-collections">
+                                    <option>
+                                        
+                                    </option>
+                                    <%@collections.each do |collection|%>
+                                        <option>
+                                            <%=collection.name%>
+                                        </option>
+                                    <%end%>
+                                </select>
+                            </div>
+                            <div id="new-container" class="hidden">
+                                <div class="control-group" >
+                                    <label class="control-label" for="collection-title">
+                                        Title: 
+                                    </label>
+                                    <input type="text" id="collection-title"/>  
+                                </div>
+                                <form action='https://tipontia.s3.amazonaws.com' enctype='multipart/form-data' id='file_upload' method='post'>
+                                    <input name='key' type='hidden' />
+                                    <input name='AWSAccessKeyId' type='hidden' value='AKIAJFIREA26AFJBIXWQ' />
+                                    <input name='acl' type='hidden' value='public-read' />
+                                    <input name='success_action_status' type='hidden' value='200' />
+                                    <input name='policy' type='hidden' />
+                                    <input name='signature' type='hidden' />
+                                    <div class="file-upload">
+                                      <span class="btn btn-info fileinput-button">
+                                          <span><i class="icon-plus icon-white"></i> Add Photos</span>
+                                          <input type="file" name="file"/>
+                                      </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="btn btn-success">
+                                Request Participants
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="span3" >
+                            <div id="slider-code">
+                            	<a class="buttons prev" href="#"><<</a>
+                            	<div class="viewport">
+                            		<ul class="overview" id="collection-images">
+                                        <li></li>
+                            		</ul>
+                            	</div>
+                            	<a class="buttons next" href="#">>></a>
+                            </div>
+                    </div>
+                    
+                </div>
           </div>
         </div>
      </div>

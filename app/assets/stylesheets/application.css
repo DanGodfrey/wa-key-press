@@ -1,13 +1,38 @@
-i {
+.team i {
     margin-right:5px;
     margin-top:3px;
 }
 
-select {
+#kpa-controls select {
     width:auto;
     min-width:90px;
 }
 
+#slider-code { height: 125px; overflow:hidden; }
+#slider-code .viewport { float: left; width: 90px; height: 125px; overflow: hidden; position: relative; }
+#slider-code .buttons { display: block; margin: 30px 10px 0 0; float: left; }
+#slider-code .next { margin: 30px 0 0 10px;  }
+#slider-code .disable { visibility: hidden; }
+#slider-code .overview { list-style: none; position: absolute; padding: 0; margin: 0; left: 0; top: 0; }
+#slider-code .overview li{ float: left; margin: 0 20px 0 0; padding: 1px; height: 121px; width: 236px;}
+
+
+.thumb {
+    width:80px;
+    height:80px;
+    margin-right:10px;
+    margin-bottom:10px;
+}
+
+.right-border {
+    border-right:1px solid #DDD;
+}
+
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 2px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 2px #ccc;
+  box-shadow:         3px 3px 5px 2px #ccc;
+}
 
 .wa-client{
  margin-top:120px;
@@ -15,6 +40,7 @@ select {
  overflow:hidden;
  padding-top:50px;
  padding-bottom:50px;
+ min-width:685px;
 }
 
 .round {
@@ -22,6 +48,16 @@ select {
     -webkit-border-radius: 50px;
     -o-border-radius: 50px;
     border-radius: 50px;
+}
+
+.hidden {
+    display:none;
+}
+
+.disabled {
+    background-color: whiteSmoke;
+    border-color: #DDD;
+    cursor: not-allowed;
 }
 
 .team {
@@ -41,6 +77,7 @@ select {
 .team ul {
     list-style:none;
 }
+
 
 .team1 {
     left:0;
@@ -112,8 +149,21 @@ select {
     line-height:150px;
 }
 
+#zoom-controls label{
+    width:auto;
+}
+
 [class^="icon-"] {
     background-image: url(/assets/glyphicons-halflings.png);
+}
+
+.icon-white {
+    background-image: url(/assets/glyphicons-halflings-white.png);
+}
+
+#file_upload{
+    display:inline;
+    width:130px;
 }
 
 #WACanvas{

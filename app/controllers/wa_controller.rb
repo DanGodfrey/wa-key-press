@@ -3,6 +3,7 @@ class WaController < ApplicationController
   end
   
   def facilitator
+    @collections = ZoomCollection.find :all
   end
   
   def clear

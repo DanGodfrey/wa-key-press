@@ -96,7 +96,8 @@ var kpa = {
         $("#team1score").html( kpa.game.scores[1]);
         $("#team2score").html(kpa.game.scores[2]);
         $("#timeRemaining").html(kpa.game.timeRemaining);
-    }
+    },
+    lastImageUrl: ""
     
 }
 
@@ -130,4 +131,70 @@ $(document).ready(function(){
         $("#kpa-controls").removeClass("active");
     });
     
+    $("#existing-collection").click(function(){
+        $("#existing-container").show();
+        $("#new-container").hide();
+        $("#collection-images").html("");
+        $("#collection-title").removeAttr("disabled").removeClass("disabled").val("");
+    });
+    
+    $("#new-collection").click(function(){
+        $("#existing-container").hide();
+        $("#new-container").show();
+        $("#collection-images").html("");
+    });
+    
+	$('#file_upload').fileupload({
+      forceIframeTransport: true,    // VERY IMPORTANT.  you will get 405 Method Not Allowed if you don't add this.
+      autoUpload: true,
+      add: function (event, s3form) {
+        if (!($("#collection-title").val())){
+            alert("you must enter a collection title");
+            return;
+        }
+        if ($("#collection-images li").size() == 10){
+            alert("a collection can have at most 10 images");
+            return;
+        }
+        $("#collection-title").attr("disabled","disabled").addClass("disabled");
+        $.get("/zoom/new", {collection: {title: $("#collection-title").val()}, image: {title: s3form.files[0].name}},function(data) { 
+            if(data.success){
+                $('#file_upload').find('input[name=key]').val(data.s3.key);
+                $('#file_upload').find('input[name=policy]').val(data.s3.policy);
+                $('#file_upload').find('input[name=signature]').val(data.s3.signature);
+                s3form.submit();
+                kpa.lastImageUrl = data.url;
+            } else {
+                alert(data.message);
+            }
+        });
+      },
+      send: function(e, data) {},
+      fail: function(e, data) {
+        console.log('fail');
+        console.log(data);
+      },
+      done: function (event, data) {
+        $("#collection-images").append("<li><img class='thumb shadow' src='" + kpa.lastImageUrl + "'/></li>"); 
+        $('#slider-code').tinycarousel();
+      },
+    });
+    
+    $("#photo-collections").change(function(){
+        $("#collection-images").html("");
+        if ($("#photo-collections").val()){
+            $.get("/zoom/images", {name: $("#photo-collections").val()},function(data){
+               if (data.success){
+                   $(data.images).each(function(){
+                       $("#collection-images").append("<li><img class='thumb shadow' src='" + this.full_url + "'/></li>"); 
+                   });
+                   $('#slider-code').tinycarousel();
+               } else {
+                   console.log(data);
+               }
+            });
+        }
+    });
+    
+    $('#slider-code').tinycarousel();
 });
