@@ -22,6 +22,7 @@ var kpa = {
         if (kpa.player.team == 0) {
             kpa.player.team = team_number;
             $.post("/games/1/players", { player: {player_id: player_id, team: kpa.player.team, game_id: 1} }, function(data) {});
+            $("#yourteam").html("You're on team " + team_number + " !");
         }
         return kpa.player.team;
     },
@@ -32,6 +33,8 @@ var kpa = {
                 kpa.api.wa_executeConsoleCommand("TeleportToLocation " + kpa.game.returnLocation,100);
                 setTimeout(function (){kpa.api.wa_executeConsoleCommand("Do claphands", 100);},3000);
                 kpa.api.wa_executeConsoleCommand("ToggleRunByDefault",100); 
+                kpa.player.team = 0;
+                $("#yourteam").html("");
             }
             else  if ((kpa.game.status === "stopped") && (data.status === "started")){
                 kpa.api.wa_executeConsoleCommand("ToggleRunByDefault",100); 

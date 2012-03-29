@@ -24,6 +24,11 @@
     margin-bottom:10px;
 }
 
+#yourteam {
+    text-align:center;
+    color:inherit;
+}
+
 .right-border {
     border-right:1px solid #DDD;
 }

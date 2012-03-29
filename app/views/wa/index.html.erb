@@ -1,11 +1,16 @@
 <%= javascript_include_tag "kpa-player" %>
 
-<div class="alert-info team1 ingame team">
+<div class="alert-error team1 ingame team">
     <h2>Team 1</h2>
     <div id="team1score" class="score">
     </div>
 </div>
-<div class="alert-error ingame team2 team">
+<div class="controls ingame">
+    <div class="timer">
+        <h1 id="timeRemaining"></h1>
+    </div>
+</div>
+<div class="alert-info ingame team2 team">
     <h2>Team 2</h2>
     <div id="team2score" class="score">
     </div>
